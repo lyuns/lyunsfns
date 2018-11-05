@@ -1,3 +1,6 @@
+/*
+ * 纯函数 缓存
+*/
 let mem = (fn) => {
 	let _cache = {}
 
