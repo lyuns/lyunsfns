@@ -1,14 +1,14 @@
 let mem = (fn) => {
-	let _cache = {};
+	let _cache = {}
 
-	return function() {
-		let arg_str = JSON.stringify(arguments);
-		_cache[arg_str] = _cache[arg_str] || fn.apply(fn, arguments);
-		return _cache[arg_str];
-	};
-};
+	return (...args) => {
+		let arg_str = args.join(':')
+		_cache[arg_str] = _cache[arg_str] || fn.apply(fn, args);
+		return _cache[arg_str]
+	}
+}
 
 let add = mem((a, b) => {
-	console.log('计算中...');
+	console.log('计算中...')
 	return a + b;
-});
+})
